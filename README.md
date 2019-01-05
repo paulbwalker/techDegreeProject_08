@@ -4,7 +4,7 @@ Here is what verion I am using.
 
 Node version v6.15.0,
 NPM version 3.10.10
-Gulp version 4.0.0
+Gulp version 3.9.1
 
 Assignment:
 
