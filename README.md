@@ -6,6 +6,28 @@ Node version v6.15.0,
 NPM version 3.10.10
 Gulp version 3.9.1
 
+Kept all my working files in the src folder
+THIS IS THE FOLDER STRUCTURE OF MY PROJECT 8 FOLDER
+==>	src 
+		images ===========	
+			icons
+				svg
+		------------------
+
+		js ===============	
+		   circle
+		------------------
+
+		sass =============	
+			circle
+				components
+				core
+		------------------
+
+		Index.html
+
+
+
 Assignment:
 
 1) You'll be required to set up a Gulp build process to prepare the website for deployment.
