@@ -14,6 +14,7 @@ var gulpIf = require('gulp-if');
 var del = require('del');
 
 
+
 // Imagemin Plugin Minify PNG, JPEG, GIF and SVG images (kept it on default level)
 gulp.task('images', function() {
     gulp.src('src/images/**/*')
@@ -23,10 +24,10 @@ gulp.task('images', function() {
 
 // Used and array for the stacking order
 gulp.task('scripts', function() {
-	return gulp.src(['src/js/global.js', 
-	                 'src/js/circle/autogrow.js', 
-	                 'src/js/circle/circle.js'])
-	.pipe(maps.init())
+    return gulp.src(['src/js/global.js', 
+                     'src/js/circle/autogrow.js', 
+                     'src/js/circle/circle.js'])
+    .pipe(maps.init())
     .pipe(uglify())
     .pipe(concat('all.min.js'))
     .pipe(maps.write('./'))
@@ -58,13 +59,11 @@ gulp.task('watch', ['browserSync'], function() {
     gulp.watch('src/images/**/*', browserSync.reload);
 });
 
-// Had to use PORT 8080 because I used AWS Cloud9
-// If there is a problem with PORT 3000 use PORT 8080
 gulp.task('browserSync', function() {
     browserSync.init({
-        server: './src',
-        port: 3000,
-        ui: {port: 3001}
+        server: './dist',
+        port: 8080,
+        ui: {port: 8081}
     })
 });
 
@@ -83,7 +82,7 @@ gulp.task('clean', function() {
 
 // Used gulp version 3.9.1 created error when using gulp version 4.0
 gulp.task('build', function(callback) {
-    runSequence('clean','prodJS', ['scripts', 'styles', 'images'], callback);
+    runSequence('clean','styles','prodJS', ['scripts', 'images'], callback);
 });
 
 gulp.task('default', ['build'], function() {
